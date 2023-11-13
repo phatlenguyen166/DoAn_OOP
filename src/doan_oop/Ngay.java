@@ -14,13 +14,26 @@ public class Ngay {
     private int date;
     private int month;
     private int year;
-    
+
     static Scanner sc = new Scanner(System.in);
-    
+
     public Ngay() {
         date = 0;
         month = 0;
         year = 0;
+    }
+
+    public Ngay(String dateString) {
+        String[] parts = dateString.split("/");
+        if (parts.length == 3) {
+            this.date = Integer.parseInt(parts[0]);
+            this.month = Integer.parseInt(parts[1]);
+            this.year = Integer.parseInt(parts[2]);
+        } else {
+            // Handle invalid date format
+            System.out.println("Invalid date format");
+            // You might want to throw an exception or handle it in another way
+        }
     }
 
     public Ngay(int date, int month, int year) {
@@ -28,7 +41,7 @@ public class Ngay {
         this.month = month;
         this.year = year;
     }
-    
+
     public int getDate() {
         return date;
     }
@@ -56,22 +69,20 @@ public class Ngay {
     public static void setSc(Scanner sc) {
         Ngay.sc = sc;
     }
+
     public void Nhap() {
-    
-    System.out.print("Nhap ngay: ");
-    setDate(Integer.parseInt(sc.nextLine()));
 
-    System.out.print("Nhap thang: ");
-    setMonth(Integer.parseInt(sc.nextLine()));
+        System.out.print("Nhap ngay: ");
+        setDate(Integer.parseInt(sc.nextLine()));
 
-    System.out.print("Nhap nam: ");
-    setYear(Integer.parseInt(sc.nextLine()));
-}
+        System.out.print("Nhap thang: ");
+        setMonth(Integer.parseInt(sc.nextLine()));
 
-    
-    
-    
-    
-    
-    
+        System.out.print("Nhap nam: ");
+        setYear(Integer.parseInt(sc.nextLine()));
+    }
+
+    public String getNgaySinh(){
+        return date+"/"+month+"/"+year;
+    }
 }
