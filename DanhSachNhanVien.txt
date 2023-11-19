@@ -1,2 +1,1 @@
-dev1|hphat|0/0/0|nam|123123|truong phong
-dev2|hoang thien|24/7/2004|nam|123333|hoc sinh
+1|le phat|16/6/2004|nam|123123|hoc sinh|KTHUAT

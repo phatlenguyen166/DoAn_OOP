@@ -46,7 +46,7 @@ public class ListNhanVien implements ThaoTac {
             nhanvien[i].Xuat();
             flag = true;
         }
-        if (flag == true)
+        if (flag == false)
             System.out.println("Khong co nhan vien de xuat");
     }
 
@@ -149,7 +149,7 @@ public class ListNhanVien implements ThaoTac {
     public void TimKiem() {
         System.out.println("||============ Chon thao tac tim kiem ===============||");
         System.out.println("||1. Tim nhan vien theo ID                           ||");
-        System.out.println("||2. Tim nhan vien theo ho va ten                          ||");
+        System.out.println("||2. Tim nhan vien theo ho va ten                    ||");
         System.out.println("||3. Tim nhan vien theo ten                          ||");
         System.out.println("||0. Quay lai                                        ||");
         System.out.println("||===================================================||");
@@ -229,8 +229,23 @@ public class ListNhanVien implements ThaoTac {
                     String gioiTinh = txt[3];
                     int CCCD = Integer.parseInt(txt[4]);
                     String chucVu = txt[5];
-                    nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu);
-                    i++;
+                    String maPhongBan = txt[6];
+                    PhongBan phongBan = null;
+
+                     switch (maPhongBan) {
+                    case "KTHUAT":
+                        phongBan = new KyThuat(maPhongBan);
+                        break;
+                    case "KTOAN":
+                        phongBan = new KeToan(maPhongBan);
+                        break;
+                    case "MKT":
+                        phongBan = new Marketing(maPhongBan);
+                        break;
+                }
+
+                nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan);
+                i++;
                 }
             } finally {
                 size = i;
@@ -253,7 +268,9 @@ public class ListNhanVien implements ThaoTac {
                         + nhanvien[i].getNS().getNgaySinh() + "|"
                         + nhanvien[i].getGioiTinh() + "|"
                         + nhanvien[i].getCCCD() + "|"
-                        + nhanvien[i].getChucVu());
+                        + nhanvien[i].getChucVu()   + "|"
+                        + nhanvien[i].getPhongBan().getMaPhongBan() 
+                        );
             }
             bw.close();
         } catch (IOException e) {
