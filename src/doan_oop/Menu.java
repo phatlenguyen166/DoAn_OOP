@@ -27,5 +27,6 @@ public class Menu {
             System.out.println("Nhap sai thao tac, xin nhap lai !!!");
         }
     } while ( choice != 0);
+    sc.close();
     }
 }
