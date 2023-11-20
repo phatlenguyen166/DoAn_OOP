@@ -40,7 +40,7 @@ public class ListNhanVien implements ThaoTac {
     }
 
     @Override
-    public void Xuat() {
+    public void xuat() {
         boolean flag = false;
         for (int i = 0; i < size; i++) {
             nhanvien[i].Xuat();
@@ -51,7 +51,7 @@ public class ListNhanVien implements ThaoTac {
     }
 
     @Override
-    public void Them() {
+    public void them() {
         System.out.print("Nhap so luong nhan vien can them: ");
         int soLuongnhanvien = Integer.parseInt(sc.nextLine());
         for (int i = size; i < size + soLuongnhanvien; i++) {
@@ -65,7 +65,7 @@ public class ListNhanVien implements ThaoTac {
     }
 
     @Override
-    public void Sua() {
+    public void sua() {
         System.out.println("||============ Chon muc ban muon sua ===============||");
         System.out.println("||1. Sua ho va ten nhan vien                        ||");
         System.out.println("||2. Sua chuc vu cua nhan vien                      ||");
@@ -120,7 +120,7 @@ public class ListNhanVien implements ThaoTac {
     }
 
     @Override
-    public void Xoa() {
+    public void xoa() {
         System.out.println("||============ Xoa nhan vien ===============||");
         System.out.println("Nhap ID can xoa: ");
         String ID = sc.nextLine();
@@ -145,7 +145,7 @@ public class ListNhanVien implements ThaoTac {
     }
 
     @Override
-    public void TimKiem() {
+    public void timKiem() {
         System.out.println("||============ Chon thao tac tim kiem ===============||");
         System.out.println("||1. Tim nhan vien theo ID                           ||");
         System.out.println("||2. Tim nhan vien theo ho va ten                    ||");
@@ -296,23 +296,23 @@ public class ListNhanVien implements ThaoTac {
         choice = Integer.parseInt(sc.nextLine());
         switch(choice) {
             case 1:{
-                Them();
+                them();
                 break;
             }
             case 2:{
-                Xuat();
+                xuat();
                 break;
             }
             case 3:{
-                Xoa();
+                xoa();
                 break;
             }
             case 4:{
-                Sua();
+                sua();
                 break;
             }
             case 5:{
-                TimKiem();
+                timKiem();
                 break;
             }
             case 0: break;
