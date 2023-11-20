@@ -1,1 +1,3 @@
-1|1|1/1/1|1|1|1|KTHUAT
+1|phat|16/6/2004|nam|123123|hoc sinh|KTHUAT|6400000.0
+2|thien|24/7/2004|nanm|123123|truong phong|KTOAN|4600000.0
+3|Thu|12/12/2004|nu|345345|phuc vu|MKT|5600000.0

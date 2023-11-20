@@ -30,9 +30,7 @@ public class Ngay {
             this.month = Integer.parseInt(parts[1]);
             this.year = Integer.parseInt(parts[2]);
         } else {
-            // Handle invalid date format
-            System.out.println("Invalid date format");
-            // You might want to throw an exception or handle it in another way
+            System.out.println("Loi!!!");
         }
     }
 

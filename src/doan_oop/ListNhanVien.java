@@ -230,6 +230,7 @@ public class ListNhanVien implements ThaoTac {
                     String chucVu = txt[5];
                     String maPhongBan = txt[6];
                     PhongBan phongBan = null;
+                    double luong = Double.parseDouble(txt[7]);
 
                      switch (maPhongBan) {
                     case "KTHUAT":
@@ -242,8 +243,8 @@ public class ListNhanVien implements ThaoTac {
                         phongBan = new Marketing(maPhongBan);
                         break;
                 }
-
-                nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan);
+                    
+                nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan,luong);
                 i++;
                 }
             } finally {
@@ -268,7 +269,8 @@ public class ListNhanVien implements ThaoTac {
                         + nhanvien[i].getGioiTinh() + "|"
                         + nhanvien[i].getCCCD() + "|"
                         + nhanvien[i].getChucVu()   + "|"
-                        + nhanvien[i].getPhongBan().getMaPhongBan() 
+                        + nhanvien[i].getPhongBan().getMaPhongBan() + "|"
+                        + nhanvien[i].getLuong()
                         );
             }
             bw.close();

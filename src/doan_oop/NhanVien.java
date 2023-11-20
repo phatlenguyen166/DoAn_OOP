@@ -14,7 +14,6 @@
         private String id;
         private String ten;
         private Ngay NS = new Ngay();
-        // private Luong luong;
         private PhongBan phongBan;
         private int CCCD;
         // private BaoHiem BH
@@ -22,13 +21,13 @@
         // private HopDong HD;
         private String chucVu;
         private String gioiTinh;
-        
+        private double luong;
         static Scanner sc = new Scanner(System.in);
         
         public NhanVien() {
         }
 
-        public NhanVien(String id, String ten, Ngay NS,String gioiTinh,int CCCD, String chucVu,PhongBan phongBan) {
+        public NhanVien(String id, String ten, Ngay NS,String gioiTinh,int CCCD, String chucVu,PhongBan phongBan,double luong) {
             this.id = id;
             this.ten = ten;
             this.NS = NS;
@@ -36,6 +35,7 @@
             this.chucVu = chucVu;
             this.gioiTinh= gioiTinh;
             this.phongBan = phongBan;
+            this.luong = luong;
         }
 
         public String getId() {
@@ -68,6 +68,10 @@
             return phongBan;
         }
 
+        public double getLuong() {
+            return luong;
+        }
+
         public void setId(String id) {
             this.id = id;
         }
@@ -96,26 +100,25 @@
         public void setPhongBan(PhongBan phongBan) {
             this.phongBan = phongBan;
         }
-        @Override
-        public String toString() {
-            return "NhanVien{" + "id=" + id + ", ten=" + ten + ", NS=" + NS + ", chucVu=" + chucVu + ", gioiTinh=" + gioiTinh + '}';
+
+        public void setLuong(double luong) {
+            this.luong = luong;
         }
 
         public void display(){
             System.out.println(toString());
         }
-
         
         public void Nhap(){    
             System.out.print("+Nhap ID cua nhan vien: ");
             setId(sc.nextLine());
             System.out.print("+Nhap ten cua nhan vien: ");
             setTen(sc.nextLine());
-            System.out.print("+Nhap gioi tinh cua nhan vien: ");
+            System.out.print("+Nhap gioi tinh : ");
             setGioiTinh(sc.nextLine());
-            System.out.print("Nhap ngay thang nam sinh cua nhan vien: ");
+            System.out.println("||==== Nhap ngay thang nam sinh ====|| ");
             NS.Nhap();
-            System.out.print("Nhap so can cuoc cong cua nhan vien: ");
+            System.out.print("Nhap so can cuoc cong: ");
             setCCCD(Integer.parseInt(sc.nextLine()));
             System.out.print("Nhap chuc vu cua nhan vien: ");
             setChucVu(sc.nextLine());
@@ -126,7 +129,8 @@
         }
         public void Xuat(){
             System.out.println("ID: " + id + " || " + "Ten: " + ten + " || " +" Ngay sinh: " + NS.getNgaySinh() +" || "+ "Gioi tinh: " + gioiTinh 
-            + " || " +"CCCD: " + CCCD +" || "+"Chuc vu: "+ chucVu +" || " + "Ma phong ban: " +  phongBan.getMaPhongBan() );
+            + " || " +"CCCD: " + CCCD +" || "+"Chuc vu: "+ chucVu +" || " + "Ma phong ban: " +  phongBan.getMaPhongBan() 
+            + " || " + "Luong: " + getLuong() );
         }
 
         public void menuPhongBan(){
@@ -142,23 +146,20 @@
 
             switch(choice){
                 case 1:{
-                    PhongBan phongBan = new KyThuat();
-                    phongBan.setMaPhongBan("KTHUAT");
-                    phongBan.setTenPhongBan("Ky Thuat");
+                    PhongBan phongBan = new KyThuat("KTHUAT","Ky Thuat");
+                    setLuong(phongBan.tinhLuong());
                     setPhongBan(phongBan);
                     break;
                 }
                 case 2:{
-                    PhongBan phongBan = new KeToan();
-                    phongBan.setMaPhongBan("KTOAN");
-                    phongBan.setTenPhongBan("Ke Toan");
+                    PhongBan phongBan = new KeToan("KTOAN","Ke Toan");
+                    setLuong(phongBan.tinhLuong());
                     setPhongBan(phongBan);
                     break;
                 }
                 case 3:{
-                    PhongBan phongBan = new Marketing(); 
-                    phongBan.setMaPhongBan("MKT");
-                    phongBan.setTenPhongBan("Marketing");
+                    PhongBan phongBan = new Marketing("MKT","Marketing"); 
+                    setLuong(phongBan.tinhLuong());
                     setPhongBan(phongBan);
                     break;
                 }
