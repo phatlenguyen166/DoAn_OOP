@@ -66,7 +66,6 @@ public class ListNhanVien implements ThaoTac {
 
     @Override
     public void Sua() {
-        System.out.println();
         System.out.println("||============ Chon muc ban muon sua ===============||");
         System.out.println("||1. Sua ho va ten nhan vien                        ||");
         System.out.println("||2. Sua chuc vu cua nhan vien                      ||");
