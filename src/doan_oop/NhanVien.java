@@ -17,11 +17,11 @@
         private PhongBan phongBan;
         private int CCCD;
         // private BaoHiem BH
-        // private KhenThuongKyLuat KTKL;
         // private HopDong HD;
         private String chucVu;
         private String gioiTinh;
         private double luong;
+        // private KhenThuongKyLuat khenThuongKyLuat = new KhenThuongKyLuat();
         static Scanner sc = new Scanner(System.in);
         
         public NhanVien() {
@@ -36,6 +36,7 @@
             this.gioiTinh= gioiTinh;
             this.phongBan = phongBan;
             this.luong = luong;
+            // this.khenThuongKyLuat = khenThuongKyLuat;
         }
 
         public String getId() {
@@ -72,6 +73,10 @@
             return luong;
         }
 
+        // public KhenThuongKyLuat getKhenThuongKyLuat() {
+        //     return khenThuongKyLuat;
+        // }
+
         public void setId(String id) {
             this.id = id;
         }
@@ -105,9 +110,9 @@
             this.luong = luong;
         }
 
-        public void display(){
-            System.out.println(toString());
-        }
+        // public void setKhenThuongKyLuat(KhenThuongKyLuat khenThuongKyLuat) {
+        //     this.khenThuongKyLuat = khenThuongKyLuat;
+        // }
         
         public void Nhap(){    
             System.out.print("+Nhap ID cua nhan vien: ");

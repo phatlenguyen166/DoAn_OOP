@@ -19,7 +19,7 @@ public class Menu {
         choice = Integer.parseInt(sc.nextLine());
         switch(choice) {
             case 1:{
-                nhanVien.Menu();
+                nhanVien.menu();
                 break;
             }
             case 0: break;

@@ -279,7 +279,7 @@ public class ListNhanVien implements ThaoTac {
     }
 
     @Override
-    public void Menu(){
+    public void menu(){
         docFile();
         int choice = 0;
         do{

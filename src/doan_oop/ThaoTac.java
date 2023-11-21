@@ -8,5 +8,5 @@ public interface ThaoTac {
     public void timKiem();
     public void docFile();
     public void ghiFile();
-    public void Menu();
+    public void menu();
 }
