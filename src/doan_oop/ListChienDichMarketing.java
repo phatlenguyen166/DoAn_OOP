@@ -34,9 +34,6 @@ public class ListChienDichMarketing implements ThaoTac {
     @Override
     public void them() {
         ChienDichMarketing p = new ChienDichMarketing();
-        System.out.println("+Nhap id du an them:");
-        String id = sc.nextLine();
-        
         p.inputChienDich();
         //numberOfProjects++;
         listChienDich[amount++] = p;
