@@ -12,7 +12,7 @@ public class Menu {
         ListDuAn duAn = new ListDuAn();
         ListHoaDon hoaDon= new ListHoaDon();
         ListChienDichMarketing chienDichMarketing = new ListChienDichMarketing();
-        int choice = 0;
+                int choice = 0;
         do{
             System.out.println("||============ Chon chuc nang ===============||");
             System.out.println("||1. Chon chuc nang nhan vien                ||");
@@ -41,7 +41,7 @@ public class Menu {
                 chienDichMarketing.menu();
                 break;
             }
-            case 0: break;
+                        case 0: break;
             default:
             System.out.println("Nhap sai thao tac, xin nhap lai !!!");
         }

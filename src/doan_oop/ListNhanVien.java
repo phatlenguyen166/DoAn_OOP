@@ -83,11 +83,11 @@ public class ListNhanVien implements ThaoTac {
                 for (int i = 0; i < size; i++) {
                     if (toLowerCase.equals(nhanvien[i].getId().toLowerCase())) {
                         nhanvien[i].setTen(newHovaTen);
-                        System.out.print("Da sua ho va ten thanh cong!");
+                        System.out.println("Da sua ho va ten thanh cong!");
                         flag = true;
                     }
                 }
-                if (flag == true) {
+                if (flag == false) {
                     System.out.println("Khong co nhan vien de sua");
                 }
                 ghiFile();
@@ -103,7 +103,7 @@ public class ListNhanVien implements ThaoTac {
                 for (int i = 0; i < size; i++) {
                     if (toLowerCase.equals(nhanvien[i].getId().toLowerCase())) {
                         nhanvien[i].setChucVu(newChucVu);
-                        System.out.print("Da sua chuc vu moi thanh cong!");
+                        System.out.println("Da sua chuc vu moi thanh cong!");
                     }
                 }
                 if (flag == false) {
@@ -210,56 +210,56 @@ public class ListNhanVien implements ThaoTac {
 
     @Override
     public void docFile() {
-        int i = 0;
-        try {
-            FileReader fr = new FileReader("DanhSachNhaNVien.txt");
-            BufferedReader br = new BufferedReader(fr);
-            try {
-                String line = "";
-                while (true) {
-                    line = br.readLine();
-                    if (line == null)
-                        break;
-                    String[] txt = line.split("\\|");
-                    String id = txt[0];
-                    String ten = txt[1];
-                    String ngayString = txt[2];
-                    Ngay NS = new Ngay(ngayString);
-                    String gioiTinh = txt[3];
-                    int CCCD = Integer.parseInt(txt[4]);
-                    String chucVu = txt[5];
-                    String maPhongBan = txt[6];
-                    PhongBan phongBan = null;
-                    double luong = Double.parseDouble(txt[7]);
+        // int i = 0;
+        // try {
+        //     FileReader fr = new FileReader("DanhSachNhaNVien.txt");
+        //     BufferedReader br = new BufferedReader(fr);
+        //     try {
+        //         String line = "";
+        //         while (true) {
+        //             line = br.readLine();
+        //             if (line == null)
+        //                 break;
+        //             String[] txt = line.split("\\|");
+        //             String id = txt[0];
+        //             String ten = txt[1];
+        //             String ngayString = txt[2];
+        //             Ngay NS = new Ngay(ngayString);
+        //             String gioiTinh = txt[3];
+        //             int CCCD = Integer.parseInt(txt[4]);
+        //             String chucVu = txt[5];
+        //             String maPhongBan = txt[6];
+        //             PhongBan phongBan = null;
+        //             double luong = Double.parseDouble(txt[7]);
 
-                     switch (maPhongBan) {
-                    case "KTHUAT":
-                        phongBan = new KyThuat(maPhongBan);
-                        break;
-                    case "KTOAN":
-                        phongBan = new KeToan(maPhongBan);
-                        break;
-                    case "MKT":
-                        phongBan = new Marketing(maPhongBan);
-                        break;
-                }
+        //              switch (maPhongBan) {
+        //             case "KTHUAT":
+        //                 phongBan = new KyThuat(maPhongBan);
+        //                 break;
+        //             case "KTOAN":
+        //                 phongBan = new KeToan(maPhongBan);
+        //                 break;
+        //             case "MKT":
+        //                 phongBan = new Marketing(maPhongBan);
+        //                 break;
+        //         }
                     
-                nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan,luong);
-                i++;
-                }
-            } finally {
-                size = i;
-                fr.close();
-                br.close();
-            }
-        } catch (Exception e) {
-        }
+        //         nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan,luong);
+        //         i++;
+        //         }
+        //     } finally {
+        //         size = i;
+        //         fr.close();
+        //         br.close();
+        //     }
+        // } catch (Exception e) {
+        // }
     }
 
     @Override
     public void ghiFile() {
         try {
-            FileWriter fw = new FileWriter("DanhSachNhanVien.txt",false);
+            FileWriter fw = new FileWriter("DaGhiFile.txt",false);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
             for (int i = 0; i < size; i++) {
@@ -288,7 +288,7 @@ public class ListNhanVien implements ThaoTac {
             System.out.println("||2. Xuat danh sach nhan vien               ||");
             System.out.println("||3. Xoa nhan vien                          ||");
             System.out.println("||4. Sua nhan vien                          ||");
-            System.out.println("||5. Tim nhan vien                          ||");
+            System.out.println("||5. Tim nhan vien                          ||"); 
             System.out.println("||0. Quay lai                               ||");
             System.out.println("||==========================================||");
             System.out.print("Nhap thao tac: ");
@@ -315,12 +315,13 @@ public class ListNhanVien implements ThaoTac {
                 timKiem();
                 break;
             }
+            
             case 0: break;
             default:
             System.out.println("Nhap sai thao tac, xin nhap lai !!!");
         }
     } while ( choice != 0);
 }
-
+     
 
 }

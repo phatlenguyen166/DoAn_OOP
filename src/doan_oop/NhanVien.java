@@ -16,12 +16,11 @@
         private Ngay NS = new Ngay();
         private PhongBan phongBan;
         private int CCCD;
-        // private BaoHiem BH
-        // private HopDong HD;
         private String chucVu;
         private String gioiTinh;
         private double luong;
-        // private KhenThuongKyLuat khenThuongKyLuat = new KhenThuongKyLuat();
+        // private BaoHiem baoHiem = new BaoHiem();
+        // private HopDong hopDong = new HopDong();
         static Scanner sc = new Scanner(System.in);
         
         public NhanVien() {
@@ -143,7 +142,6 @@
             System.out.println("||1. Nhan vien thuoc phong Ky Thuat         ||");
             System.out.println("||2. Nhan vien thuoc phong Ke Toan          ||");
             System.out.println("||3. Nhan vien thuoc phong Marketing        ||");
-            System.out.println("||0. Quay lai                               ||");
             System.out.println("||==========================================||");
             System.out.print("Nhap thao tac: ");
             int choice = 0;
@@ -151,29 +149,27 @@
 
             switch(choice){
                 case 1:{
-                    PhongBan phongBan = new KyThuat("KTHUAT","Ky Thuat");
+                    phongBan = new KyThuat("KTHUAT","Ky Thuat");
                     setLuong(phongBan.tinhLuong());
-                    setPhongBan(phongBan);
                     break;
                 }
                 case 2:{
-                    PhongBan phongBan = new KeToan("KTOAN","Ke Toan");
+                    phongBan = new KeToan("KTOAN","Ke Toan");
                     setLuong(phongBan.tinhLuong());
-                    setPhongBan(phongBan);
                     break;
                 }
                 case 3:{
-                    PhongBan phongBan = new Marketing("MKT","Marketing"); 
+                    phongBan = new Marketing("MKT","Marketing"); 
                     setLuong(phongBan.tinhLuong());
-                    setPhongBan(phongBan);
                     break;
                 }
-                case 0: break;
                 default:{
                     System.out.println("Nhap sai moi nhap lai!!");
                 }
             }
         }
-    }
+
+}
+    
 
 

@@ -3,6 +3,7 @@ package doan_oop;
 public class KeToan extends PhongBan {
     private double heSoLuong = 2.3;
     private double luongCoBan = 2000000;
+    private double soGioTangCa ;
     public KeToan(){
 
     }
@@ -20,12 +21,15 @@ public class KeToan extends PhongBan {
         return heSoLuong;
     }
 
+    public double getSoGioTangCa() {
+        return soGioTangCa;
+    }
     public double getLuongCoBan() {
         return luongCoBan;
     }
 
     @Override 
     public double tinhLuong(){
-        return getHeSoLuong() * getLuongCoBan();
+        return getHeSoLuong() * getLuongCoBan() + getSoGioTangCa()*200000 ;
     }
 }
