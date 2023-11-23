@@ -1,2 +1,1 @@
-1|phat|16/4/2004|nam|123123|hoc sibg|KTHUAT|8000000.0
-2|thien|15/2/3004|nam|132123|casd|KTOAN|4600000.0
+1|le nguyen hoang phat|16/6/2004|nam|123123|hoc sinh|KTHUAT|8100000.0

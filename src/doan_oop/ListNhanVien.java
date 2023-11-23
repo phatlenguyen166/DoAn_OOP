@@ -210,50 +210,50 @@ public class ListNhanVien implements ThaoTac {
 
     @Override
     public void docFile() {
-        // int i = 0;
-        // try {
-        //     FileReader fr = new FileReader("DanhSachNhaNVien.txt");
-        //     BufferedReader br = new BufferedReader(fr);
-        //     try {
-        //         String line = "";
-        //         while (true) {
-        //             line = br.readLine();
-        //             if (line == null)
-        //                 break;
-        //             String[] txt = line.split("\\|");
-        //             String id = txt[0];
-        //             String ten = txt[1];
-        //             String ngayString = txt[2];
-        //             Ngay NS = new Ngay(ngayString);
-        //             String gioiTinh = txt[3];
-        //             int CCCD = Integer.parseInt(txt[4]);
-        //             String chucVu = txt[5];
-        //             String maPhongBan = txt[6];
-        //             PhongBan phongBan = null;
-        //             double luong = Double.parseDouble(txt[7]);
+        int i = 0;
+        try {
+            FileReader fr = new FileReader("DanhSachNhaNVien.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                String line = "";
+                while (true) {
+                    line = br.readLine();
+                    if (line == null)
+                        break;
+                    String[] txt = line.split("\\|");
+                    String id = txt[0];
+                    String ten = txt[1];
+                    String ngayString = txt[2];
+                    Ngay NS = new Ngay(ngayString);
+                    String gioiTinh = txt[3];
+                    int CCCD = Integer.parseInt(txt[4]);
+                    String chucVu = txt[5];
+                    String maPhongBan = txt[6];
+                    PhongBan phongBan = null;
+                    double luong = Double.parseDouble(txt[7]);
 
-        //              switch (maPhongBan) {
-        //             case "KTHUAT":
-        //                 phongBan = new KyThuat(maPhongBan);
-        //                 break;
-        //             case "KTOAN":
-        //                 phongBan = new KeToan(maPhongBan);
-        //                 break;
-        //             case "MKT":
-        //                 phongBan = new Marketing(maPhongBan);
-        //                 break;
-        //         }
+                     switch (maPhongBan) {
+                    case "KTHUAT":
+                        phongBan = new KyThuat(maPhongBan);
+                        break;
+                    case "KTOAN":
+                        phongBan = new KeToan(maPhongBan);
+                        break;
+                    case "MKT":
+                        phongBan = new Marketing(maPhongBan);
+                        break;
+                }
                     
-        //         nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan,luong);
-        //         i++;
-        //         }
-        //     } finally {
-        //         size = i;
-        //         fr.close();
-        //         br.close();
-        //     }
-        // } catch (Exception e) {
-        // }
+                nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan,luong);
+                i++;
+                }
+            } finally {
+                size = i;
+                fr.close();
+                br.close();
+            }
+        } catch (Exception e) {
+        }
     }
 
     @Override

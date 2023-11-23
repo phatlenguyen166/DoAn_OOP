@@ -1,8 +1,6 @@
 package doan_oop;
 
 public class KyThuat extends PhongBan {
-    private double heSoLuong = 3.2;
-    private double luongCoBan = 2500000;
     private double soLanSuaChua ;
     public KyThuat(){
 
@@ -11,23 +9,24 @@ public class KyThuat extends PhongBan {
     public KyThuat(String maPhongBan){
         super(maPhongBan);
     }
+    public KyThuat(String maPhongBan,String tenPhongBan,double heSoLuong,double luongCoBan){
+        super(maPhongBan,tenPhongBan,heSoLuong,luongCoBan);
+    }
 
-    public double getHeSoLuong() {
-        return heSoLuong;
-    }
-    
-    public double getLuongCoBan() {
-        return luongCoBan;
-    }
     public double getSoLanSuaChua() {
         return soLanSuaChua;
     }
-    public KyThuat(String maPhongBan,String tenPhongBan){
-        super(maPhongBan,tenPhongBan);
+    public void setSoLanSuaChua(double soLanSuaChua) {
+        this.soLanSuaChua = soLanSuaChua;
     }
     @Override 
     public double tinhLuong(){
         return getLuongCoBan() * getHeSoLuong() + getSoLanSuaChua() * 50000;
+    }
+    @Override
+    public void nhap(){
+        System.out.print("Nhap so lan sua chua thanh cong: ");
+        setSoLanSuaChua(Double.parseDouble(sc.nextLine()));
     }
 }
 

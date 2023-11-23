@@ -1,8 +1,6 @@
 package doan_oop;
 
 public class KeToan extends PhongBan {
-    private double heSoLuong = 2.3;
-    private double luongCoBan = 2000000;
     private double soGioTangCa ;
     public KeToan(){
 
@@ -12,24 +10,24 @@ public class KeToan extends PhongBan {
         super(maPhongBan);
     }
 
-    public KeToan(String maPhongBan,String tenPhongBan){
-        super(maPhongBan,tenPhongBan);  
+    public KeToan(String maPhongBan,String tenPhongBan,double heSoLuong,double luongCoBan){
+        super(maPhongBan,tenPhongBan,heSoLuong,luongCoBan);  
     }    
-
-
-    public double getHeSoLuong() {
-        return heSoLuong;
-    }
 
     public double getSoGioTangCa() {
         return soGioTangCa;
     }
-    public double getLuongCoBan() {
-        return luongCoBan;
-    }
 
+    public void setSoGioTangCa(double soGioTangCa) {
+        this.soGioTangCa = soGioTangCa;
+    }
     @Override 
     public double tinhLuong(){
         return getHeSoLuong() * getLuongCoBan() + getSoGioTangCa()*200000 ;
+    }
+    @Override
+    public void nhap(){
+        System.out.print("Nhap so gio tang ca: ");
+        setSoGioTangCa(Double.parseDouble(sc.nextLine()));
     }
 }

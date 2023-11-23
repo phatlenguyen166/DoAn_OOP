@@ -149,17 +149,20 @@
 
             switch(choice){
                 case 1:{
-                    phongBan = new KyThuat("KTHUAT","Ky Thuat");
+                    phongBan = new KyThuat("KTHUAT","Ky Thuat",3.2,2500000);
+                    phongBan.nhap(); // nhap so lan sua chua de tinh + vao luong;
                     setLuong(phongBan.tinhLuong());
                     break;
                 }
                 case 2:{
-                    phongBan = new KeToan("KTOAN","Ke Toan");
-                    setLuong(phongBan.tinhLuong());
+                    phongBan = new KeToan("KTOAN","Ke Toan",2.3,2000000);
+                    phongBan.nhap();    // nhap so gio tang ca de tinh + vao luong;
+                    setLuong(phongBan.tinhLuong()); 
                     break;
                 }
                 case 3:{
-                    phongBan = new Marketing("MKT","Marketing"); 
+                    phongBan = new Marketing("MKT","Marketing",2.8,2200000); 
+                    phongBan.nhap();  // nhap so lan chot deal de tinh + vao luong;
                     setLuong(phongBan.tinhLuong());
                     break;
                 }
