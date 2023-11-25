@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class ListNhanVien implements ThaoTac {
+
     private int size = 0;
     public NhanVien[] nhanvien = new NhanVien[100];
     static Scanner sc = new Scanner(System.in);
@@ -46,8 +47,9 @@ public class ListNhanVien implements ThaoTac {
             nhanvien[i].Xuat();
             flag = true;
         }
-        if (flag == false)
+        if (flag == false) {
             System.out.println("Khong co nhan vien de xuat");
+        }
     }
 
     @Override
@@ -182,8 +184,9 @@ public class ListNhanVien implements ThaoTac {
                         flag = true;
                     }
                 }
-                if (flag == false)
+                if (flag == false) {
                     System.out.println("Khong tim thay nhan vien");
+                }
                 break;
             }
             case 3: {
@@ -218,8 +221,9 @@ public class ListNhanVien implements ThaoTac {
                 String line = "";
                 while (true) {
                     line = br.readLine();
-                    if (line == null)
+                    if (line == null) {
                         break;
+                    }
                     String[] txt = line.split("\\|");
                     String id = txt[0];
                     String ten = txt[1];
@@ -229,23 +233,27 @@ public class ListNhanVien implements ThaoTac {
                     int CCCD = Integer.parseInt(txt[4]);
                     String chucVu = txt[5];
                     String maPhongBan = txt[6];
-                    PhongBan phongBan = null;
-                    double luong = Double.parseDouble(txt[7]);
+                    PhongBan phongBan=null;
+                    double luong = Double.parseDouble(txt[11]);
 
-                     switch (maPhongBan) {
-                    case "KTHUAT":
-                        phongBan = new KyThuat(maPhongBan);
-                        break;
-                    case "KTOAN":
-                        phongBan = new KeToan(maPhongBan);
-                        break;
-                    case "MKT":
-                        phongBan = new Marketing(maPhongBan);
-                        break;
-                }
+                    switch (maPhongBan) {
+                        case "KTHUAT":
+                            phongBan = new KyThuat(maPhongBan,txt[7],Double.parseDouble(txt[8]),Double.parseDouble(txt[9]),Double.parseDouble(txt[10]));
+                            break;
+                        case "KTOAN":
+                            phongBan = new KeToan(maPhongBan,txt[7],Double.parseDouble(txt[8]),Double.parseDouble(txt[9]),Double.parseDouble(txt[10]));
+                            break;
+                        case "MKT":
+                            phongBan = new Marketing(maPhongBan,txt[7],Double.parseDouble(txt[8]),Double.parseDouble(txt[9]),Double.parseDouble(txt[10]));
+                            break;
+                    }
+                    BaoHiem bhiem=new BaoHiem(txt[12],txt[13],Integer.parseInt(txt[14]),txt[15],txt[16]);
+                    HopDong hd=new HopDong();
+                    hd.setIdHD(txt[17]);
                     
-                nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan,luong);
-                i++;
+                    KhenthuongKyluat ktkl =new KhenthuongKyluat(Integer.parseInt(txt[18]),Integer.parseInt(txt[19]),Integer.parseInt(txt[20]),Double.parseDouble(txt[21]),Double.parseDouble(txt[22]));
+                    nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan, luong, bhiem,hd,ktkl);
+                    i++;
                 }
             } finally {
                 size = i;
@@ -259,7 +267,7 @@ public class ListNhanVien implements ThaoTac {
     @Override
     public void ghiFile() {
         try {
-            FileWriter fw = new FileWriter("DaGhiFile.txt",false);
+            FileWriter fw = new FileWriter("DanhSachNhaNVien.txt", false);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
             for (int i = 0; i < size; i++) {
@@ -268,10 +276,13 @@ public class ListNhanVien implements ThaoTac {
                         + nhanvien[i].getNS().getNgaySinh() + "|"
                         + nhanvien[i].getGioiTinh() + "|"
                         + nhanvien[i].getCCCD() + "|"
-                        + nhanvien[i].getChucVu()   + "|"
-                        + nhanvien[i].getPhongBan().getMaPhongBan() + "|"
-                        + nhanvien[i].getLuong()
-                        );
+                        + nhanvien[i].getChucVu() + "|"
+                        + nhanvien[i].getPhongBan() + "|"
+                        + nhanvien[i].getLuong() + "|"
+                        + nhanvien[i].getBaoHiem() + "|"
+                        + nhanvien[i].getHopDong().getIdHD() + "|"
+                        + nhanvien[i].getKhenThuongKyLuat()
+                );
             }
             bw.close();
         } catch (IOException e) {
@@ -279,49 +290,49 @@ public class ListNhanVien implements ThaoTac {
     }
 
     @Override
-    public void menu(){
+    public void menu() {
         docFile();
         int choice = 0;
-        do{
+        do {
             System.out.println("||============ Chon thao tac ===============||");
             System.out.println("||1. Them nhan vien moi                     ||");
             System.out.println("||2. Xuat danh sach nhan vien               ||");
             System.out.println("||3. Xoa nhan vien                          ||");
             System.out.println("||4. Sua nhan vien                          ||");
-            System.out.println("||5. Tim nhan vien                          ||"); 
+            System.out.println("||5. Tim nhan vien                          ||");
             System.out.println("||0. Quay lai                               ||");
             System.out.println("||==========================================||");
             System.out.print("Nhap thao tac: ");
-        
-        choice = Integer.parseInt(sc.nextLine());
-        switch(choice) {
-            case 1:{
-                them();
-                break;
+
+            choice = Integer.parseInt(sc.nextLine());
+            switch (choice) {
+                case 1: {
+                    them();
+                    break;
+                }
+                case 2: {
+                    xuat();
+                    break;
+                }
+                case 3: {
+                    xoa();
+                    break;
+                }
+                case 4: {
+                    sua();
+                    break;
+                }
+                case 5: {
+                    timKiem();
+                    break;
+                }
+
+                case 0:
+                    break;
+                default:
+                    System.out.println("Nhap sai thao tac, xin nhap lai !!!");
             }
-            case 2:{
-                xuat();
-                break;
-            }
-            case 3:{
-                xoa();
-                break;
-            }
-            case 4:{
-                sua();
-                break;
-            }
-            case 5:{
-                timKiem();
-                break;
-            }
-            
-            case 0: break;
-            default:
-            System.out.println("Nhap sai thao tac, xin nhap lai !!!");
-        }
-    } while ( choice != 0);
-}
-     
+        } while (choice != 0);
+    }
 
 }

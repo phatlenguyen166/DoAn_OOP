@@ -3,7 +3,7 @@ package doan_oop;
 import java.util.Scanner;
 
 public class BaoHiem {
-    static public Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
     private String MaBH;
     private String loaiBH;
     private int tienBH;
@@ -41,7 +41,7 @@ public class BaoHiem {
     }
 
     public void setLoaiBH(String loaiBH) {
-        while(!(loaiBH.equalsIgnoreCase("bao hiem y te")|| loaiBH.equalsIgnoreCase("bao hiem tai nan"))){
+        while(!(loaiBH.equalsIgnoreCase("bhyt")|| loaiBH.equalsIgnoreCase("bhtn"))){
             System.out.println("Nhap lai loai bao hiem:");
             loaiBH=sc.nextLine();
         }
@@ -74,22 +74,26 @@ public class BaoHiem {
 
     public void InsertInfo(){
         System.out.println("Hay nhap ma bao hiem: ");
-        MaBH = sc.nextLine();
-        System.out.println("Hay nhap loai bao hiem: ");
-        loaiBH = sc.nextLine();
+        setMaBH(sc.nextLine());
+        System.out.println("Hay nhap loai bao hiem (bhyt/bhtn): ");
+        setLoaiBH(sc.nextLine());
         System.out.println("Hay nhap tien bao hiem: ");
-        tienBH = Integer.parseInt(sc.nextLine());
+        setTienBH(Integer.parseInt(sc.nextLine()));
         System.out.println("Hay nhap noi cap: ");
-        noiCap = sc.nextLine();
+        setNoiCap(sc.nextLine());
         System.out.println("Hay nhap ngay cap: ");
-        ngayCap = sc.nextLine();
+        setNgayCap(sc.nextLine());
     }
 
     @Override
-    public String toString(){
-        return String.format( "%20s%30s%20d%50s%20s", MaBH, loaiBH, tienBH, noiCap, ngayCap);
+    public String toString() {
+        return  MaBH + "|" + loaiBH + "|" + tienBH + "|" + noiCap + "|"+ ngayCap;
     }
-    public void display(){
-        System.out.println(toString());
+
+    
+    public String display(){
+        return "Ma bao hiem: "+getMaBH()+ " || " + "Loai bao hiem: "+getLoaiBH() +
+                " || " + "Tien bao hiem: "+getTienBH() + " || " + "Noi cap: " + getNoiCap() +
+                " || " + "Ngay cap: " + getNgayCap();
     }
 }

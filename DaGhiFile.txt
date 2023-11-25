@@ -1,1 +1,4 @@
-1|le nguyen hoang phat|16/6/2004|nam|123123|hoc sinh|KTHUAT|8100000.0
+a|hoang|1/1/2001|nam|12345|sv|KTOAN|Ke Toan|2.3|2000000.0|8.0|6800000.0|bh01|bhyt|500000|q7|1/1/2023|hd01
+b|thanh|2/2/2002|nu|456|sv|MKT|Marketing|2.8|2200000.0|9.0|7560000.0|bh02|bhtn|50000|q8|1/1/2023|hd02
+c|phuong|3/3/2003|nu|789|sv|KTHUAT|Ky Thuat|3.2|2500000.0|4.0|9000000.0|bh03|bhyt|5000000|nb|1/1/2023|hd03
+d|an|4/4/2004|nam|147|sv|MKT|Marketing|2.8|2200000.0|7.0|7160000.0|bh04|bhtn|10000|hn|01/05/2023|hd04

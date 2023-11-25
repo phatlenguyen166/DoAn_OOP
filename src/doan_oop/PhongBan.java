@@ -53,6 +53,11 @@ public abstract class PhongBan {
         this.tenPhongBan = tenPhongBan;
     }
 
+    @Override
+    public String toString() {
+        return maPhongBan + "|" + tenPhongBan + "|" + heSoLuong + "|" + luongCoBan;
+    }
+    
     public abstract double tinhLuong();
     public abstract void nhap();
 }

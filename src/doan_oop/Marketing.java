@@ -6,8 +6,9 @@ public class Marketing extends PhongBan {
 
     }
 
-    public Marketing(String maPhongBan){
-        super(maPhongBan);
+    public Marketing(String maPhongBan,String tenPhongBan,double heSoLuong,double luongCoBan,double soLanChotDeal){
+        super(maPhongBan,tenPhongBan,heSoLuong,luongCoBan);
+        this.soLanChotDeal=soLanChotDeal;
     }
 
     public Marketing(String maPhongBan,String tenPhongBan,double heSoLuong,double luongCoBan){
@@ -31,4 +32,10 @@ public class Marketing extends PhongBan {
         System.out.print("Nhap so lan chot deal: ");
         setSoLanChotDeal(Double.parseDouble(sc.nextLine()));
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+ "|" + soLanChotDeal;
+    }
+    
 }

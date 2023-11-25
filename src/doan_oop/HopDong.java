@@ -2,10 +2,7 @@
 package doan_oop;
 import java.util.Scanner;
 
-/**
- *
- * @author Admin
- */
+
 public class HopDong{
     String idHD;
     String loaiHD;
@@ -105,16 +102,14 @@ public class HopDong{
         return  " idHD : " + idHD + " ,  loaiHD : " + loaiHD + ",   tenPB : " + tenPB + " ,   ngayKy : " + ngayKy + "    , thoiHan : " + thoiHan+ "thang " ;
     }
 public void inputHopDong(){
-        System.out.println("Mời nhập mã hợp đồng");
-        setIdHD(idHD);
-        System.out.println("Mời nhập loại hợp đồng");
-        setLoaiHD(loaiHD);
-        System.out.println("Mời nhập phòng ban");
-        setTenPB(tenPB);
-        System.out.println("Mời nhập ngay ky hợp đồng");
-        setNgayKy(ngayKy);
-        System.out.println("Mời nhập thòi hạn hợp đồng");
-        setThoiHan(thoiHan);
+        System.out.println("Moi nhap ma hop dong");
+        setIdHD(sc.nextLine());
+        System.out.println("Moi nhap loai hop dong");
+        setLoaiHD(sc.nextLine());
+        System.out.println("Moi nhap ngay ky hop dong");
+        setNgayKy(sc.nextLine());
+        System.out.println("Moi nhap thoi han hop dong");
+        setThoiHan(Integer.parseInt(sc.nextLine()));
     }
    public void outputHopDong(){
        System.out.println(toString());
