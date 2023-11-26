@@ -52,6 +52,15 @@ public class ListNhanVien implements ThaoTac {
         }
     }
 
+    public boolean ktraID(String id) {
+        for (int i = 0; i < size; i++) {
+            if (id.equalsIgnoreCase(nhanvien[i].getId())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public void them() {
         System.out.print("Nhap so luong nhan vien can them: ");
@@ -59,7 +68,18 @@ public class ListNhanVien implements ThaoTac {
         for (int i = size; i < size + soLuongnhanvien; i++) {
             nhanvien[i] = new NhanVien();
             System.out.println("Nhap thong tin nhan vien can them: ");
-            nhanvien[i].Nhap();
+
+            while (true) {
+                System.out.println("Nhap id nhan vien: ");
+                String id = sc.nextLine();
+                if (ktraID(id)) {
+                    nhanvien[i].setId(id);
+                    nhanvien[i].Nhap();
+                    break;
+                }
+                System.out.println("Id trung, moi nhap lai!");
+            }
+
             System.out.println("Them nhan vien thanh cong!!");
         }
         size += soLuongnhanvien;
@@ -191,10 +211,10 @@ public class ListNhanVien implements ThaoTac {
             }
             case 3: {
                 System.out.println("Nhap so CCCD cua nhan vien can tim: ");
-                int cccd = Integer.parseInt(sc.nextLine());
+                String cccd = sc.nextLine();
                 boolean flag = true;
                 for (int i = 0; i < size; i++) {
-                    if (cccd == nhanvien[i].getCCCD()) {
+                    if (cccd.equalsIgnoreCase(nhanvien[i].getCCCD())) {
                         nhanvien[i].Xuat();
                         flag = true;
                     }
@@ -230,29 +250,29 @@ public class ListNhanVien implements ThaoTac {
                     String ngayString = txt[2];
                     Ngay NS = new Ngay(ngayString);
                     String gioiTinh = txt[3];
-                    int CCCD = Integer.parseInt(txt[4]);
+                    String CCCD = txt[4];
                     String chucVu = txt[5];
                     String maPhongBan = txt[6];
-                    PhongBan phongBan=null;
+                    PhongBan phongBan = null;
                     double luong = Double.parseDouble(txt[11]);
 
                     switch (maPhongBan) {
                         case "KTHUAT":
-                            phongBan = new KyThuat(maPhongBan,txt[7],Double.parseDouble(txt[8]),Double.parseDouble(txt[9]),Double.parseDouble(txt[10]));
+                            phongBan = new KyThuat(maPhongBan, txt[7], Double.parseDouble(txt[8]), Double.parseDouble(txt[9]), Double.parseDouble(txt[10]));
                             break;
                         case "KTOAN":
-                            phongBan = new KeToan(maPhongBan,txt[7],Double.parseDouble(txt[8]),Double.parseDouble(txt[9]),Double.parseDouble(txt[10]));
+                            phongBan = new KeToan(maPhongBan, txt[7], Double.parseDouble(txt[8]), Double.parseDouble(txt[9]), Double.parseDouble(txt[10]));
                             break;
                         case "MKT":
-                            phongBan = new Marketing(maPhongBan,txt[7],Double.parseDouble(txt[8]),Double.parseDouble(txt[9]),Double.parseDouble(txt[10]));
+                            phongBan = new Marketing(maPhongBan, txt[7], Double.parseDouble(txt[8]), Double.parseDouble(txt[9]), Double.parseDouble(txt[10]));
                             break;
                     }
-                    BaoHiem bhiem=new BaoHiem(txt[12],txt[13],Integer.parseInt(txt[14]),txt[15],txt[16]);
-                    HopDong hd=new HopDong();
+                    BaoHiem bhiem = new BaoHiem(txt[12], txt[13], Integer.parseInt(txt[14]), txt[15], txt[16]);
+                    HopDong hd = new HopDong();
                     hd.setIdHD(txt[17]);
-                    
-                    KhenthuongKyluat ktkl =new KhenthuongKyluat(Integer.parseInt(txt[18]),Integer.parseInt(txt[19]),Integer.parseInt(txt[20]),Double.parseDouble(txt[21]),Double.parseDouble(txt[22]));
-                    nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan, luong, bhiem,hd,ktkl);
+
+                    KhenthuongKyluat ktkl = new KhenthuongKyluat(Integer.parseInt(txt[18]), Integer.parseInt(txt[19]), Integer.parseInt(txt[20]), Double.parseDouble(txt[21]), Double.parseDouble(txt[22]));
+                    nhanvien[i] = new NhanVien(id, ten, NS, gioiTinh, CCCD, chucVu, phongBan, luong, bhiem, hd, ktkl);
                     i++;
                 }
             } finally {

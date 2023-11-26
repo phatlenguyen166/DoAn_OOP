@@ -8,7 +8,7 @@ public class NhanVien {
     private String ten;
     private Ngay NS = new Ngay();
     private PhongBan phongBan;
-    private int CCCD;
+    private String CCCD;
     private String chucVu;
     private String gioiTinh;
     private double luong;
@@ -20,8 +20,8 @@ public class NhanVien {
     public NhanVien() {
     }
 
-    public NhanVien(String id, String ten, Ngay NS, String gioiTinh, int CCCD,
-            String chucVu, PhongBan phongBan, double luong, BaoHiem baoHiem, HopDong hopDong,KhenthuongKyluat khenThuongKyLuat) {
+    public NhanVien(String id, String ten, Ngay NS, String gioiTinh, String CCCD,
+            String chucVu, PhongBan phongBan, double luong, BaoHiem baoHiem, HopDong hopDong, KhenthuongKyluat khenThuongKyLuat) {
         this.id = id;
         this.ten = ten;
         this.NS = NS;
@@ -39,7 +39,7 @@ public class NhanVien {
         return id;
     }
 
-    public int getCCCD() {
+    public String getCCCD() {
         return CCCD;
     }
 
@@ -80,14 +80,35 @@ public class NhanVien {
     }
 
     public void setId(String id) {
+        while (true) {
+            if (!id.equals("")) {
+                break;
+            }
+            System.out.println("Nhap id:");
+            id = sc.nextLine();
+        }
         this.id = id;
     }
 
     public void setTen(String ten) {
+        while(true)  {
+            if(!ten.equals("")){
+                break;
+            }
+            System.out.println("Nhap ten: ");
+            sc.nextLine();
+        }
         this.ten = ten;
     }
 
-    public void setCCCD(int CCCD) {
+    public void setCCCD(String CCCD) {
+        while(true){
+            if(CCCD.length() >=9 && CCCD.length()<=12){
+                break;
+            }
+            System.out.println("Nhap CCCD (9-12 so): ");
+            CCCD=sc.nextLine();
+        }
         this.CCCD = CCCD;
     }
 
@@ -96,10 +117,24 @@ public class NhanVien {
     }
 
     public void setChucVu(String chucVu) {
+        while(true){
+            if(!chucVu.equals("")){
+                break;
+            }
+            System.out.println("Nhap chuc vu: ");
+            chucVu=sc.nextLine();
+        }
         this.chucVu = chucVu;
     }
 
     public void setGioiTinh(String gioiTinh) {
+        while(true){
+            if(gioiTinh.equalsIgnoreCase("nam")||gioiTinh.equalsIgnoreCase("nu")){
+                break;
+            }
+            System.out.println("Nhap gioi tinh (nam/nu): ");
+            gioiTinh = sc.nextLine();
+        }
         this.gioiTinh = gioiTinh;
     }
 
@@ -124,8 +159,8 @@ public class NhanVien {
     }
 
     public void Nhap() {
-        System.out.print("+Nhap ID cua nhan vien: ");
-        setId(sc.nextLine());
+//        System.out.print("+Nhap ID cua nhan vien: ");
+//        setId(sc.nextLine());
         System.out.print("+Nhap ten cua nhan vien: ");
         setTen(sc.nextLine());
         System.out.print("+Nhap gioi tinh : ");
@@ -133,7 +168,7 @@ public class NhanVien {
         System.out.println("||==== Nhap ngay thang nam sinh ====|| ");
         NS.Nhap();
         System.out.print("Nhap so can cuoc cong: ");
-        setCCCD(Integer.parseInt(sc.nextLine()));
+        setCCCD(sc.nextLine());
         System.out.print("Nhap chuc vu cua nhan vien: ");
         setChucVu(sc.nextLine());
         System.out.println("Nhap thong tin phong ban: ");
@@ -148,10 +183,10 @@ public class NhanVien {
     }
 
     public void Xuat() {
-        System.out.println("ID: " + id + " || " + "Ten: " + ten + " || " + " Ngay sinh: " + NS.getNgaySinh() +
-                " || " + "Gioi tinh: " + gioiTinh + " || " + "CCCD: " + CCCD + " || " + "Chuc vu: " + chucVu +
-                " || " + "Ma phong ban: " + phongBan.getMaPhongBan() + " || " + "Luong: " + getLuong() + 
-                " || " + baoHiem.display() + " || " + "id hop dong: " + hopDong.getIdHD()+ " || " +khenThuongKyLuat.disphay());
+        System.out.println("ID: " + id + " || " + "Ten: " + ten + " || " + " Ngay sinh: " + NS.getNgaySinh()
+                + " || " + "Gioi tinh: " + gioiTinh + " || " + "CCCD: " + CCCD + " || " + "Chuc vu: " + chucVu
+                + " || " + "Ma phong ban: " + phongBan.getMaPhongBan() + " || " + "Luong: " + getLuong()
+                + " || " + baoHiem.display() + " || " + "id hop dong: " + hopDong.getIdHD() + " || " + khenThuongKyLuat.disphay());
     }
 
     public void menuPhongBan() {

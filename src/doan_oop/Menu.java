@@ -20,7 +20,7 @@ public class Menu {
             System.out.println("||2. Chon chuc nang du an                    ||");
             System.out.println("||3. Chon chuc nang hoa don                  ||");
             System.out.println("||4. Chon chuc nang chien dich Marketing     ||");
-            System.out.println("||5. chon chuc nang thong ke                 ||");
+            System.out.println("||5. Chon chuc nang thong ke                 ||");
             System.out.println("||0. Quay lai                                ||");
             System.out.println("||===========================================||");
             System.out.print("Nhap thao tac: ");

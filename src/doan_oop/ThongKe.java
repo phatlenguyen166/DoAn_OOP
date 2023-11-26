@@ -14,14 +14,16 @@ public class ThongKe {
     static Scanner sc = new Scanner(System.in);
 
     public void menuThongKe() {
-        System.out.println("1. So luong nhan vien trong cong ty");
-        System.out.println("2. Danh sach nhan vien thuoc phong ke toan");
-        System.out.println("3. Danh sach nhan vien thuoc phong ky thuat");
-        System.out.println("4. Danh sach nhan vien thuoc phong marketing");
-        System.out.println("5. So luong du an cua cong ty");
-        System.out.println("6. Tong luong cua tat ca nhan vien trong cong ty");
-        System.out.println("7. Nhan vien co luong cao nhat");
-        System.out.println("0. Quay lai");
+        System.out.println("||============ Chon thao tac thong ke ===============||");
+        System.out.println("||1. So luong nhan vien trong cong ty                ||");
+        System.out.println("||2. Danh sach nhan vien thuoc phong ke toan         ||");
+        System.out.println("||3. Danh sach nhan vien thuoc phong ky thuat        ||");
+        System.out.println("||4. Chon chuc nang chien dich Marketing             ||");
+        System.out.println("||5. Danh sach nhan vien thuoc phong marketing       ||");
+        System.out.println("||6. Tong luong cua tat ca nhan vien trong cong ty   ||");
+        System.out.println("||7. Nhan vien co luong cao nhat                     ||");
+        System.out.println("||0. Quay lai                                        ||");
+        System.out.println("||===================================================||");
     }
 
     public void inputNvien(){
