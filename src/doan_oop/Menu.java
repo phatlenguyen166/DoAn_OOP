@@ -11,6 +11,7 @@ public class Menu {
         ListDuAn duAn = new ListDuAn();
         ListHoaDon hoaDon = new ListHoaDon();
         ListChienDichMarketing chienDichMarketing = new ListChienDichMarketing();
+        ListHopDong hopDong = new ListHopDong();
         ThongKe tk =new ThongKe();
         int choice = 0;
         
@@ -21,6 +22,7 @@ public class Menu {
             System.out.println("||3. Chon chuc nang hoa don                  ||");
             System.out.println("||4. Chon chuc nang chien dich Marketing     ||");
             System.out.println("||5. Chon chuc nang thong ke                 ||");
+            System.out.println("||6. Chon chuc nang hop dong                 ||");
             System.out.println("||0. Quay lai                                ||");
             System.out.println("||===========================================||");
             System.out.print("Nhap thao tac: ");
@@ -46,6 +48,9 @@ public class Menu {
                 case 5: 
                     tk.inputThongKe();
                     tk.outputThongKe();
+                    break;
+                case 6:
+                    hopDong.menu();
                     break;
                 case 0:
                     break;
